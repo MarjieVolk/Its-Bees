@@ -4,22 +4,43 @@ public class ModuleGrid : MonoBehaviour
 {
     [SerializeField] private int maxDepth = 5;
     [SerializeField] private int height = 4;
+    private Lanes lanes;
 
     private Module[,] grid;
 
     protected void Start()
     {
         this.grid = new Module[maxDepth, height];
+        lanes = GetComponentInParent<Lanes>();
+    }
+
+    public void TryDestroyModule(int x, int y)
+    {
+        if (x > this.maxDepth || y < 0 || y >= height || this.grid[x, y] == null)
+            return;
+
+        this.grid[x, y] = null;
+
+        // TODO destroy the other stuff that's not connected any more
     }
 
     public void TryConnectModule(Module module, int x, int y)
     {
-        if (x > this.maxDepth || !this.IsConnectable(x, y))
+        if (x > this.maxDepth || y < 0 || y >= height || !this.IsConnectable(x, y))
             return;
 
         if (x == this.maxDepth)
         {
             x--;
+
+            // Destroy the backmost row
+            for (int j = 0; j < this.height; j++)
+            {
+                if (this.grid[0, j] != null)
+                {
+                    Destroy(this.grid[0, j].gameObject);
+                }
+            }
 
             // Move the whole grid back 1
             for (int i = 0; i < this.maxDepth - 1; i++)
@@ -27,11 +48,21 @@ public class ModuleGrid : MonoBehaviour
                 for (int j = 0; j < this.height; j++)
                 {
                     this.grid[i, j] = this.grid[i + 1, j];
+                    RepositionModule(i, j);
+                    this.grid[i + 1, j] = null;
                 }
             }
         }
 
         this.grid[x, y] = module;
+        RepositionModule(x, y);
+    }
+
+    private void RepositionModule(int x, int y)
+    {
+        if (this.grid[x, y] == null) return;
+
+        this.grid[x, y].transform.position = new Vector3(lanes.LaneHeight * x, lanes.LaneHeight * y, 0);
     }
 
     private bool IsConnectable(int x, int y)

@@ -21,6 +21,7 @@ public class Module : MonoBehaviour
     [SerializeField] private SideConfig rightSide;
     [SerializeField] private SideConfig topSide;
     [SerializeField] private SideConfig bottomSide;
+    [SerializeField] private MonoBehaviour enableOnAttach;
 
     private Dictionary<Side, SideConfig> sideConfig;
 
@@ -55,6 +56,7 @@ public class Module : MonoBehaviour
             if (castleGrid.TryConnectModuleGlobalLane(this, x, y))
             {
                 Destroy(GetComponent<MovesForwards>());
+                enableOnAttach.enabled = true;
             }
         }
     }

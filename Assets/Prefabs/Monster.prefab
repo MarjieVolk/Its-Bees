@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4971393997266896}
   - component: {fileID: 212652656042235498}
   - component: {fileID: 114723350858774178}
-  - component: {fileID: 114021053540223608}
   - component: {fileID: 114356365411075536}
   m_Layer: 0
   m_Name: Monster
@@ -43,19 +42,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114021053540223608
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1769904038286542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e5974a7e6e0c945830c3018744dd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 1009037501909202, guid: ac921fc11dc1f124dbe0a5484e443eb0, type: 2}
-  secondsPerShot: 3
 --- !u!114 &114356365411075536
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4971393997266896}
   - component: {fileID: 212652656042235498}
   - component: {fileID: 114723350858774178}
-  - component: {fileID: 114596687701370274}
   - component: {fileID: 114021053540223608}
+  - component: {fileID: 114356365411075536}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -56,7 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1009037501909202, guid: ac921fc11dc1f124dbe0a5484e443eb0, type: 2}
   secondsPerShot: 3
---- !u!114 &114596687701370274
+--- !u!114 &114356365411075536
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1769904038286542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aefb1c3b653a9dc45832b2cfb03cfac2, type: 3}
+  m_Script: {fileID: 11500000, guid: 062d10a9e980dc64dbcf78cf4f2f20de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114723350858774178
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113c37a1ffb5a014ea4bb8d152eeb1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -0.01
+  speed: -0.005
 --- !u!212 &212652656042235498
 SpriteRenderer:
   m_ObjectHideFlags: 1

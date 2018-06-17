@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class MonsterFactory : MonoBehaviour
 {
-    [SerializeField] private GameObject monster;
+    [SerializeField] private HasLane monster;
     [SerializeField] private float secondsPerMonster;
     [SerializeField] private float secondsPerMonsterJitter;
-    [SerializeField] private int numLanes;
+    [SerializeField] private float lanePositionJitter;
     private float nextSpawnTime;
+    private Lanes lanes;
 
 	// Use this for initialization
 	void Start () {
 		UpdateSpawnTime();
+	    lanes = GetComponentInParent<Lanes>();
 	}
 	
 	// Update is called once per frame
@@ -20,10 +22,10 @@ public class MonsterFactory : MonoBehaviour
 	    if (Time.time >= nextSpawnTime)
 	    {
 	        UpdateSpawnTime();
-	        GameObject spawnedMonster = Instantiate(monster, transform.position, transform.rotation);
-	        Bounds bounds = this.GetComponent<Collider2D>().bounds;
-	        int lane = Random.Range(0, numLanes);
-	        spawnedMonster.transform.position += new Vector3(0, bounds.min.y + bounds.size.y * (lane + 0.5f) / numLanes, 0);
+	        HasLane spawnedMonster = Instantiate(monster, transform.position, transform.rotation);
+	        spawnedMonster.Lane = lanes.RandomLane();
+	        float yPosition = lanes.CenterOfLane(spawnedMonster.Lane) + Random.Range(-lanePositionJitter, lanePositionJitter) * lanes.LaneHeight;
+            spawnedMonster.transform.position += new Vector3(0, yPosition, 0);
 	    }
 	}
 

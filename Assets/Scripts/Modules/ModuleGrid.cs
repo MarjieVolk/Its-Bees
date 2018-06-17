@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ModuleGrid : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class ModuleGrid : MonoBehaviour
     [SerializeField] private int height = 4;
     public int Height { get { return height; } }
     private Lanes lanes;
+    private HasLane lane;
 
     private Module[,] grid;
 
@@ -13,6 +15,12 @@ public class ModuleGrid : MonoBehaviour
     {
         this.grid = new Module[maxDepth, height];
         lanes = GetComponentInParent<Lanes>();
+        lane = GetComponent<HasLane>();
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        collider.size = new Vector2(lanes.LaneHeight, lanes.LaneHeight * Height);
+        Debug.Log(collider.size);
+        Debug.Log(lanes.LaneHeight);
+        collider.offset= new Vector2(0, collider.size.y / 2f - lanes.LaneHeight / 2f);
     }
 
     public void TryDestroyModule(int x, int y)
@@ -25,10 +33,15 @@ public class ModuleGrid : MonoBehaviour
         // TODO destroy the other stuff that's not connected any more
     }
 
-    public void TryConnectModule(Module module, int x, int y)
+    public bool TryConnectModuleGlobalLane(Module module, int x, int y)
     {
-        if (x > this.maxDepth || y < 0 || y >= height || !this.IsConnectable(x, y))
-            return;
+        return TryConnectModuleLocalLane(module, x, y - lane.Lane);
+    }
+
+    private bool TryConnectModuleLocalLane(Module module, int x, int y)
+    {
+        if (x < 0 || x > this.maxDepth || y < 0 || y >= height || !this.IsConnectable(x, y))
+            return false;
 
         if (x == this.maxDepth)
         {
@@ -56,14 +69,17 @@ public class ModuleGrid : MonoBehaviour
         }
 
         this.grid[x, y] = module;
+        module.transform.parent = transform;
         RepositionModule(x, y);
+
+        return true;
     }
 
     private void RepositionModule(int x, int y)
     {
         if (this.grid[x, y] == null) return;
 
-        this.grid[x, y].transform.position = new Vector3(lanes.LaneHeight * x, lanes.LaneHeight * y, 0);
+        this.grid[x, y].transform.localPosition = new Vector3(lanes.LaneHeight * x, lanes.LaneHeight * y, 0);
     }
 
     private bool IsConnectable(int x, int y)
@@ -71,6 +87,10 @@ public class ModuleGrid : MonoBehaviour
         // Is there already a module at this location?
         if (x < this.maxDepth && this.grid[x, y] != null)
             return false;
+
+        // Is this in the leftmost column?
+        if (x == 0)
+            return true;
 
         Module leftSide = null;
         if (x > 0)

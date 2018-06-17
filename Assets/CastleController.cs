@@ -44,6 +44,6 @@ public class CastleController : MonoBehaviour
 
     private void Reposition()
     {
-        transform.position = new Vector3(transform.position.x, lanes.CenterOfLane(currentLane.Lane), 0);
+        transform.position = new Vector3(lanes.GetComponent<BoxCollider2D>().bounds.min.x + lanes.LaneHeight / 2f, lanes.CenterOfLane(currentLane.Lane), 0);
     }
 }

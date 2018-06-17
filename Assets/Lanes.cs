@@ -21,7 +21,7 @@ public class Lanes : MonoBehaviour
     private void DrawGridLines()
     {
         bool isHighlighted = false;
-        for (int i = 0; i < NumLanes; i++)
+        for (int i = 0; i <= NumLanes; i++)
         {
             float center = CenterOfLane(i);
             GameObject line = Instantiate(lineTexture, new Vector3(0, center, lineDrawZ), Quaternion.identity);

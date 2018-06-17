@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 65285145759553592}
   - component: {fileID: 114286049233197730}
   m_Layer: 0
-  m_Name: Background
+  m_Name: LoopingBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

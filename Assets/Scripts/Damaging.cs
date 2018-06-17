@@ -6,9 +6,9 @@ public class
     Damaging : MonoBehaviour {
 
     // The amount of damage this bullet will do.
-    [SerializeField] public float damage = 100;
+    [SerializeField] public float damage = 600;
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         HasHealth other = collision.gameObject.GetComponent<HasHealth>();
         if (other != null)

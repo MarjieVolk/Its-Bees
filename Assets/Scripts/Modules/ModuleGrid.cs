@@ -20,7 +20,7 @@ public class ModuleGrid : MonoBehaviour
         collider.size = new Vector2(lanes.LaneHeight, lanes.LaneHeight * Height);
         Debug.Log(collider.size);
         Debug.Log(lanes.LaneHeight);
-        collider.offset= new Vector2(0, collider.size.y / 2f - lanes.LaneHeight / 2f);
+        collider.offset = new Vector2(0, collider.size.y / 2f - lanes.LaneHeight / 2f);
     }
 
     public void TryDestroyModule(int x, int y)

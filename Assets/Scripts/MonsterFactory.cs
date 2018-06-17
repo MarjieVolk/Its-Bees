@@ -7,6 +7,7 @@ public class MonsterFactory : MonoBehaviour
     [SerializeField] private GameObject monster;
     [SerializeField] private float secondsPerMonster;
     [SerializeField] private float secondsPerMonsterJitter;
+    [SerializeField] private int numLanes;
     private float nextSpawnTime;
 
 	// Use this for initialization
@@ -21,7 +22,8 @@ public class MonsterFactory : MonoBehaviour
 	        UpdateSpawnTime();
 	        GameObject spawnedMonster = Instantiate(monster, transform.position, transform.rotation);
 	        Bounds bounds = this.GetComponent<Collider2D>().bounds;
-	        spawnedMonster.transform.position += (Vector3) Vector2.up * Random.Range(bounds.center.y - bounds.extents.y, bounds.center.y + bounds.extents.y);
+	        int lane = Random.Range(0, numLanes);
+	        spawnedMonster.transform.position += new Vector3(0, bounds.min.y + bounds.size.y * (lane + 0.5f) / numLanes, 0);
 	    }
 	}
 

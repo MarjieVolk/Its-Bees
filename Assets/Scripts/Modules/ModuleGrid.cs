@@ -4,6 +4,7 @@ public class ModuleGrid : MonoBehaviour
 {
     [SerializeField] private int maxDepth = 5;
     [SerializeField] private int height = 4;
+    public int Height { get { return height; } }
     private Lanes lanes;
 
     private Module[,] grid;

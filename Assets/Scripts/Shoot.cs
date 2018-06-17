@@ -18,13 +18,10 @@ public class Shoot : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetMouseButton(0))
+	    if (Time.time >= nextShotTime)
 	    {
-	        if (Time.time >= nextShotTime)
-	        {
-	            nextShotTime = Time.time + secondsPerShot;
-	            Instantiate(bullet, transform.position, transform.rotation);
-	        }
+	        nextShotTime = Time.time + secondsPerShot;
+	        Instantiate(bullet, transform.position, transform.rotation);
 	    }
 	}
 }

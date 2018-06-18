@@ -9,7 +9,7 @@ public class CastleController : MonoBehaviour
     private ModuleGrid moduleGrid;
     private int maxLane
     {
-        get { return lanes.NumLanes - moduleGrid.Height + 1; }
+        get { return lanes.NumLanes - moduleGrid.Height; }
     }
 
     // Use this for initialization

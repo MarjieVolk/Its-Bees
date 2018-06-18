@@ -113,6 +113,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &15360961
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4889480321602188, guid: f0f5c136092ff1a47a525b71c2dec46d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889480321602188, guid: f0f5c136092ff1a47a525b71c2dec46d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -4.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889480321602188, guid: f0f5c136092ff1a47a525b71c2dec46d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.076171875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889480321602188, guid: f0f5c136092ff1a47a525b71c2dec46d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889480321602188, guid: f0f5c136092ff1a47a525b71c2dec46d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889480321602188, guid: f0f5c136092ff1a47a525b71c2dec46d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889480321602188, guid: f0f5c136092ff1a47a525b71c2dec46d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889480321602188, guid: f0f5c136092ff1a47a525b71c2dec46d, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114420993401592872, guid: f0f5c136092ff1a47a525b71c2dec46d,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1134897546}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: f0f5c136092ff1a47a525b71c2dec46d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &192514162
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 932287917}
   - component: {fileID: 932287918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CastleSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,13 +395,27 @@ GameObject:
   - component: {fileID: 1134897548}
   - component: {fileID: 1134897552}
   - component: {fileID: 1134897551}
-  m_Layer: 0
+  - component: {fileID: 1134897546}
+  m_Layer: 8
   m_Name: Castle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1134897546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1134897545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78a980b4883b9d48a72d3426a3b3c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  health: 5
 --- !u!4 &1134897547
 Transform:
   m_ObjectHideFlags: 0
@@ -461,7 +522,7 @@ GameObject:
   - component: {fileID: 1238583600}
   - component: {fileID: 1238583599}
   - component: {fileID: 1238583598}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}

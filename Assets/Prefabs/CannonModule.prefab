@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4531593260950306}
   - component: {fileID: 212660130505493904}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ModuleSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,8 @@ GameObject:
   - component: {fileID: 61925955093087332}
   - component: {fileID: 114078365342306490}
   - component: {fileID: 114524522775382496}
-  m_Layer: 0
+  - component: {fileID: 114086992558955562}
+  m_Layer: 10
   m_Name: CannonModule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +112,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -0.005
+--- !u!114 &114086992558955562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848461013421894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78a980b4883b9d48a72d3426a3b3c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  health: 1
 --- !u!114 &114459745554183390
 MonoBehaviour:
   m_ObjectHideFlags: 1

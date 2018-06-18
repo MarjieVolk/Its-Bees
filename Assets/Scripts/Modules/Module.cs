@@ -56,6 +56,7 @@ public class Module : MonoBehaviour
             if (castleGrid.TryConnectModuleGlobalLane(this, x, y))
             {
                 Destroy(GetComponent<MovesForwards>());
+                gameObject.SetLayerRecursive(LayerMask.NameToLayer("Player"));
                 enableOnAttach.enabled = true;
             }
         }
@@ -80,5 +81,17 @@ public class Module : MonoBehaviour
     public IEnumerable<Side> ConnectorSides()
     {
         return this.sideConfig.Where(kvp => kvp.Value.IsConnector).Select(kvp => kvp.Key);
+    }
+}
+
+public static class GameObjectExtensions
+{
+    public static void SetLayerRecursive(this GameObject obj, int layer)
+    {
+        obj.layer = layer;
+        for (int i = 0; i < obj.transform.childCount; i++)
+        {
+            obj.transform.GetChild(i).gameObject.SetLayerRecursive(layer);
+        }
     }
 }

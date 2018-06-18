@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4511191414308148}
   - component: {fileID: 212419338771898824}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CastleSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 212881286038985406}
   - component: {fileID: 114623771684546620}
   - component: {fileID: 114817219370344444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114016143037308714}
   - component: {fileID: 50219146149684822}
   - component: {fileID: 61830421368960940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Castle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,6 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78a980b4883b9d48a72d3426a3b3c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 200
+  health: 200
 --- !u!114 &114017232679023882
 MonoBehaviour:
   m_ObjectHideFlags: 1

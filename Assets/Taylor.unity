@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 411903462}
   - component: {fileID: 411903461}
   - component: {fileID: 411903463}
+  - component: {fileID: 411903464}
   m_Layer: 0
   m_Name: MonsterFactory
   m_TagString: Untagged
@@ -244,6 +245,21 @@ MonoBehaviour:
   monster: {fileID: 114459745554183390, guid: 062d7936c68c8ae4182bf98a8b2f0687, type: 2}
   secondsPerMonster: 10
   secondsPerMonsterJitter: 2
+  lanePositionJitter: 0
+--- !u!114 &411903464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411903460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51717457d66373141b2ccb60e45e1b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114540470866029842, guid: ce2082b9c5dd2994aa0e8343e22d2f09, type: 2}
+  secondsPerMonster: 20
+  secondsPerMonsterJitter: 8
   lanePositionJitter: 0
 --- !u!1 &932287916
 GameObject:

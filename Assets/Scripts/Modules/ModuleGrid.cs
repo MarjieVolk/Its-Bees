@@ -20,7 +20,7 @@ public class ModuleGrid : MonoBehaviour
         collider.size = new Vector2(lanes.LaneHeight, lanes.LaneHeight * Height);
         Debug.Log(collider.size);
         Debug.Log(lanes.LaneHeight);
-        collider.offset = new Vector2(0, collider.size.y / 2f - lanes.LaneHeight / 2f);
+        collider.offset= new Vector2(0, collider.size.y / 2f - lanes.LaneHeight / 2f);
     }
 
     public void TryDestroyModule(int x, int y)
@@ -40,7 +40,7 @@ public class ModuleGrid : MonoBehaviour
 
     private bool TryConnectModuleLocalLane(Module module, int x, int y)
     {
-        if (x < 0 || x > this.maxDepth || y < 0 || y >= height || !this.IsConnectable(x, y))
+        if (x < 0 || x > this.maxDepth || y < 0 || y >= height || !this.IsConnectable(module, x, y))
             return false;
 
         if (x == this.maxDepth)
@@ -82,7 +82,7 @@ public class ModuleGrid : MonoBehaviour
         this.grid[x, y].transform.localPosition = new Vector3(lanes.LaneHeight * x, lanes.LaneHeight * y, 0);
     }
 
-    private bool IsConnectable(int x, int y)
+    private bool IsConnectable(Module toConnect, int x, int y)
     {
         // Is there already a module at this location?
         if (x < this.maxDepth && this.grid[x, y] != null)
@@ -119,16 +119,16 @@ public class ModuleGrid : MonoBehaviour
             bool isConnectable = true;
 
             if (leftSide != null)
-                isConnectable &= leftSide.IsConnector(Module.Side.Right);
+                isConnectable &= leftSide.IsConnector(Module.Side.Right) && toConnect.IsConnector(Module.Side.Left);
 
             if (rightSide != null)
-                isConnectable &= rightSide.IsConnector(Module.Side.Left);
+                isConnectable &= rightSide.IsConnector(Module.Side.Left) && toConnect.IsConnector(Module.Side.Right);
 
             if (topSide != null)
-                isConnectable &= topSide.IsConnector(Module.Side.Bottom);
+                isConnectable &= topSide.IsConnector(Module.Side.Bottom) && toConnect.IsConnector(Module.Side.Top);
 
             if (bottomSide != null)
-                isConnectable &= bottomSide.IsConnector(Module.Side.Top);
+                isConnectable &= bottomSide.IsConnector(Module.Side.Top) && toConnect.IsConnector(Module.Side.Bottom);
 
             return isConnectable;
         }

@@ -142,6 +142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numLanes: 6
+  lineTexture: {fileID: 1540273214554074, guid: 87c91c43b8835384ba0a0b28aacfe4de,
+    type: 2}
+  lineDrawZ: -0.1
 --- !u!4 &192514164
 Transform:
   m_ObjectHideFlags: 0
@@ -191,6 +194,8 @@ GameObject:
   m_Component:
   - component: {fileID: 411903462}
   - component: {fileID: 411903461}
+  - component: {fileID: 411903463}
+  - component: {fileID: 411903464}
   m_Layer: 0
   m_Name: MonsterFactory
   m_TagString: Untagged
@@ -209,9 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51717457d66373141b2ccb60e45e1b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster: {fileID: 114119920307688122, guid: cfc7c591dc0c49f4ea9369756694b9e0, type: 2}
+  monster: {fileID: 114356365411075536, guid: 99cfcf4ab3a48fe448040fc8d739c071, type: 2}
   secondsPerMonster: 5
-  secondsPerMonsterJitter: 0.4
+  secondsPerMonsterJitter: 1
   lanePositionJitter: 0.1
 --- !u!4 &411903462
 Transform:
@@ -226,6 +231,36 @@ Transform:
   m_Father: {fileID: 192514164}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &411903463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411903460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51717457d66373141b2ccb60e45e1b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114459745554183390, guid: 062d7936c68c8ae4182bf98a8b2f0687, type: 2}
+  secondsPerMonster: 10
+  secondsPerMonsterJitter: 2
+  lanePositionJitter: 0
+--- !u!114 &411903464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411903460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51717457d66373141b2ccb60e45e1b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114540470866029842, guid: ce2082b9c5dd2994aa0e8343e22d2f09, type: 2}
+  secondsPerMonster: 20
+  secondsPerMonsterJitter: 8
+  lanePositionJitter: 0
 --- !u!1 &932287916
 GameObject:
   m_ObjectHideFlags: 0

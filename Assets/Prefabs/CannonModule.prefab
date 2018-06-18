@@ -163,7 +163,7 @@ MonoBehaviour:
   leftSide:
     isConnector: 1
   rightSide:
-    isConnector: 1
+    isConnector: 0
   topSide:
     isConnector: 1
   bottomSide:

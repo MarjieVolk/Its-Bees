@@ -23,14 +23,20 @@ public class ModuleGrid : MonoBehaviour
         collider.offset= new Vector2(0, collider.size.y / 2f - lanes.LaneHeight / 2f);
     }
 
-    public void TryDestroyModule(int x, int y)
+    private bool TryDestroyModuleLocalLane(int x, int y)
     {
-        if (x > this.maxDepth || y < 0 || y >= height || this.grid[x, y] == null)
-            return;
-
+        if (x < 0 || x >= this.maxDepth || y < 0 || y >= height || this.grid[x, y] == null)
+            return false;
+        
+        Destroy(this.grid[x, y].gameObject);
         this.grid[x, y] = null;
-
         // TODO destroy the other stuff that's not connected any more
+        return true;
+    }
+
+    public bool TryDestroyModuleGlobalLane(int x, int y)
+    {
+        return TryDestroyModuleLocalLane(x, y - lane.Lane);
     }
 
     public bool TryConnectModuleGlobalLane(Module module, int x, int y)

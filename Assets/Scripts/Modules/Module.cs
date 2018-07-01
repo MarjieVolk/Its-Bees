@@ -59,6 +59,10 @@ public class Module : MonoBehaviour
                 gameObject.SetLayerRecursive(LayerMask.NameToLayer("Player"));
                 enableOnAttach.enabled = true;
             }
+            else if (castleGrid.TryDestroyModuleGlobalLane(x, y))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
